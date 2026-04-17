@@ -296,11 +296,11 @@
     });
 
     seccionUnete.addEventListener('mouseleave', () => {
-      // Esperar 1.5 segundos antes de resetear
+      // Esperar 0.7 segundos antes de resetear (Más rápido)
       resetTimer = setTimeout(() => {
         posLetras = posLetras.map(() => ({ x: 0, y: 0 }));
         letras.forEach(letra => {
-          letra.style.transition = "transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)";
+          letra.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
           letra.style.transform = `translate(0px, 0px)`;
         });
         
@@ -309,8 +309,8 @@
           letras.forEach(letra => {
             letra.style.transition = "transform 0.1s ease-out";
           });
-        }, 1500);
-      }, 1500); // El timer de espera solicitado
+        }, 600);
+      }, 700); // Timer de espera reducido
     });
   </script>
 
