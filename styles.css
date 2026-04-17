@@ -381,11 +381,11 @@ img {
   position: relative;
   width: 100%;
   background-color: #141b63; 
-  background-image: url('fondo nuestrokt.png');
-  background-size: cover; /* Cubrir toda la sección con el fondo estrellado verdadero */
+  background-image: url('estrellitas.png');
+  background-size: cover; 
   background-position: top center;
   background-repeat: no-repeat;
-  padding: 0; 
+  padding: 0 0 10% 0; /* Añadir padding abajo para dar aire */
   overflow: hidden;
   z-index: 4;
 }
@@ -394,7 +394,7 @@ img {
   position: relative;
   width: 100%;
   max-width: 1400px;
-  aspect-ratio: 16 / 9; /* Proporción más horizontal para evitar el corte inferior */
+  aspect-ratio: 12 / 10; /* Proporción más alta para albergar el bolso completo */
   margin: 0 auto;
 }
 
