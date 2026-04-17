@@ -380,8 +380,12 @@ img {
 .seccion-kits {
   position: relative;
   width: 100%;
-  background-color: #141b63; /* Azul estelar */
-  padding: 5rem 2rem 10rem 2rem;
+  background-color: #141b63; 
+  background-image: url('fondo nuestrokt.png');
+  background-size: cover; /* Cubrir toda la sección con el fondo estrellado verdadero */
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding: 0; 
   overflow: hidden;
   z-index: 4;
 }
@@ -390,47 +394,47 @@ img {
   position: relative;
   width: 100%;
   max-width: 1400px;
-  min-height: 850px; /* Altura firme para albergar el canvas de composicion */
+  min-height: 1000px; /* Expande verticalmente para acoger el diagrama holgadamente */
   margin: 0 auto;
 }
 
 /* Header/Título flotante fijo arriba a la izquierda */
 .kits-header {
   position: absolute;
-  top: 0;
-  left: 2%;
+  top: 5%;
+  left: 5%;
   z-index: 10;
 }
 
 .titulo-kits {
-  width: 40vw;
-  max-width: 350px;
+  width: 35vw;
+  max-width: 380px;
 }
 
-/* El Tablero: estático a la izquierda asumiendo su propio fondo/inclinación en la imagen */
+/* El Tablero: Ahora es libre, lo rotamos porque es la imagen suelta transparente */
 .kit-tablero {
   position: absolute;
-  top: 15%; /* Un poco por debajo del título */
+  top: 15%; 
   left: 5%;
-  width: 50%; /* Ocupa buena porción de la izquierda */
-  max-width: 650px;
-  z-index: 1;
+  width: 55%; 
+  max-width: 700px;
+  z-index: 2;
   display: block;
   opacity: 1 !important;
-  transform: none !important; /* Totalmente quieto como exigiste */
+  transform: rotate(-15deg) !important; /* Inclinación fiel a la referencia */
   animation: none !important;
   filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.5));
 }
 
-/* Bolsa centrada-derecha abajo, solapando el mango */
+/* Bolsa al centro abajo firme y gigante */
 .kit-bolsa {
   position: absolute;
-  bottom: -5%; /* Anclada al final */
-  left: 52%; /* Tirada hacia la derecha de la composición */
+  bottom: -2%; /* Anclada para comerse el borde como la imagen original */
+  left: 50%;
   transform: translateX(-50%); 
-  width: 45%; 
-  max-width: 580px; 
-  z-index: 5; /* Pasa por encima del tablero y fondo */
+  width: 60%; /* Tamaño inmenso y predominante en el centro */
+  max-width: 750px; 
+  z-index: 5; 
   opacity: 1 !important;
   filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.6));
 }
@@ -444,21 +448,21 @@ img {
   animation: flotarBolsa 5s infinite alternate ease-in-out;
 }
 
-/* Tarjetas idénticas a la imagen, arriba a la derecha */
+/* Tarjetas, a la derecha estetas */
 .tarjetas-grupo {
   position: absolute;
-  top: 5%; /* Flotando bien arriba */
+  top: 8%; /* Flotando arriba pero un pelo más bajo que el tablero */
   right: 5%;
-  width: 25vw;
-  max-width: 350px;
+  width: 28vw;
+  max-width: 380px;
   height: 400px;
   z-index: 6;
 }
 
 .kit-tarjeta {
   position: absolute;
-  width: 65%; /* Ancho proporcional al grupo */
-  filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.4));
+  width: 60%; 
+  filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.5));
   opacity: 1 !important;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -477,20 +481,20 @@ img {
   filter: drop-shadow(0px 50px 80px rgba(0,0,0,0.8));
 }
 
-/* T1 Negra/Fuego al fondo. HOY: ESTÁ POR ENCIMA y rotada izquierda */
+/* T1 Negra/Fuego. Geográficamente más arriba, pero z-index inferior para que la blanca la solape */
 .t1 {
   top: 0;
   right: 25%;
-  transform: rotate(-15deg);
-  z-index: 7; 
+  transform: rotate(-18deg); /* Rotada hacia la izquierda */
+  z-index: 6; 
 }
 
-/* T2 Blanca/12 abajo. ESTÁ POR DEBAJO DE T1 y rotada derecha */
+/* T2 Blanca/12. Geográficamente más abajo, z-index superior para solapar a la negra */
 .t2 {
-  top: 30%;
+  top: 35%;
   right: 0%;
-  transform: rotate(15deg);
-  z-index: 6; 
+  transform: rotate(15deg); /* Rotada hacia la derecha */
+  z-index: 7; 
 }
 
 /* Animaciones flotantes */
