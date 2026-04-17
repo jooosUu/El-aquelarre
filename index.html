@@ -124,6 +124,8 @@
         <img src="tarjeta 1 unete alclan.png" alt="Tarjeta Clan 4" class="clan-card floating-4">
       </div>
     </div>
+    <!-- Bola Rosada para el cursor -->
+    <div id="cursor-bola"></div>
   </section>
 
   <!-- Botón Volver al Inicio -->
@@ -242,12 +244,18 @@
       init();
     });
 
-    /* ======== EFECTO REPELENTE PARA TARJETAS (ESTILO PARTÍCULAS) ======== */
+    /* ======== LÓGICA DE BOLA ROSADA Y REPELENTE MEJORADO ======== */
     const clanCards = document.querySelectorAll('.clan-card');
-    const REPEL_RADIUS = 250;
-    const REPEL_STRENGTH = 60;
+    const cursorBola = document.getElementById('cursor-bola');
+    const REPEL_RADIUS = 300; // Radio más grande
+    const REPEL_STRENGTH = 100; // Más fuerza de repulsión
 
     window.addEventListener('mousemove', (e) => {
+      // Mover la bola rosada
+      cursorBola.style.left = `${e.clientX}px`;
+      cursorBola.style.top = `${e.clientY}px`;
+
+      // Repelente de cartas
       clanCards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const cardCenterX = rect.left + rect.width / 2;
@@ -258,19 +266,12 @@
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < REPEL_RADIUS) {
-          // Calcular fuerza de repulsión
           const force = (REPEL_RADIUS - distance) / REPEL_RADIUS;
           const moveX = (dx / distance) * force * -REPEL_STRENGTH;
           const moveY = (dy / distance) * force * -REPEL_STRENGTH;
-
-          // Recuperar la rotación original de la clase o estilo
-          const rotationMatch = card.style.transform.match(/rotate\(([^)]+)\)/) || 
-                                window.getComputedStyle(card).transform.match(/rotate\(([^)]+)\)/);
           
-          // Aplicar traslación manteniendo la rotación original del diseño
-          card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+          card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
         } else {
-          // Volver a posición original suavemente (vía CSS transition)
           card.style.transform = `translate(0px, 0px)`;
         }
       });

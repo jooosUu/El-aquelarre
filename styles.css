@@ -724,7 +724,6 @@ html {
 .clan-card:hover {
   transform: scale(1.1) !important;
   z-index: 10 !important;
-  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.6));
 }
 
 @keyframes floating-card {
@@ -743,4 +742,22 @@ html {
   position: absolute;
   bottom: 0;
   filter: hue-rotate(140deg) brightness(1.1); /* Rosado/Naranja */
+}
+
+/* Bola Rosada que envuelve el cursor */
+#cursor-bola {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(238, 162, 189, 0.4) 0%, rgba(201, 0, 118, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  display: none; /* Se activa por JS */
+  filter: blur(10px);
+}
+
+.seccion-unete:hover #cursor-bola {
+  display: block;
 }
