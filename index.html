@@ -28,6 +28,9 @@
 
   <!-- ======== HERO / INICIO ======== -->
   <section id="inicio" class="hero">
+    <!-- Fondo interactivo de partículas -->
+    <canvas id="hero-canvas"></canvas>
+
     <!-- El buscador ahora vive aquí (en el bloque azul) -->
     <div class="search-container">
       <input type="text" placeholder="Buscar" id="searchInput" aria-label="Buscar en el sitio">
@@ -130,6 +133,95 @@
 
     document.querySelectorAll('.anim-container').forEach(section => {
       observer.observe(section);
+    });
+
+    /* ======== SISTEMA DE PARTÍCULAS INTERACTIVO ======== */
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    const mouse = { x: null, y: null, radius: 100 };
+
+    window.addEventListener('mousemove', (event) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = event.clientX - rect.left;
+      mouse.y = event.clientY - rect.top;
+    });
+
+    class Particle {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.originX = x;
+        this.originY = y;
+        this.size = Math.random() * 3 + 1;
+        this.color = Math.random() > 0.5 ? '#C90076' : '#EEA2BD'; // Fucsia y Rosa
+        this.density = (Math.random() * 30) + 1;
+      }
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+        
+        // Brillo sutil
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+      }
+      update() {
+        let dx = mouse.x - this.x;
+        let dy = mouse.y - this.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+        let forceDirectionX = dx / distance;
+        let forceDirectionY = dy / distance;
+        let maxDistance = mouse.radius;
+        let force = (maxDistance - distance) / maxDistance;
+        let directionX = forceDirectionX * force * this.density;
+        let directionY = forceDirectionY * force * this.density;
+
+        if (distance < mouse.radius) {
+          this.x -= directionX;
+          this.y -= directionY;
+        } else {
+          // Efecto Resorte (Spring)
+          if (this.x !== this.originX) {
+            let dx = this.x - this.originX;
+            this.x -= dx / 15;
+          }
+          if (this.y !== this.originY) {
+            let dy = this.y - this.originY;
+            this.y -= dy / 15;
+          }
+        }
+      }
+    }
+
+    function init() {
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+      particlesArray = [];
+      const numberOfParticles = (canvas.width * canvas.height) / 8000;
+      for (let i = 0; i < numberOfParticles; i++) {
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        particlesArray.push(new Particle(x, y));
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].draw();
+        particlesArray[i].update();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    window.addEventListener('resize', () => {
+      init();
     });
   </script>
 

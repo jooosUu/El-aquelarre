@@ -145,7 +145,19 @@ img {
   z-index: 2; /* Encima de la sección nosotras */
 }
 
+#hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Detrás del logo y el buscador */
+  pointer-events: none; /* Crucial para no bloquear los clicks */
+}
+
 .hero-content {
+  position: relative;
+  z-index: 10; /* Encima de las partículas */
   flex: 1;
   display: flex;
   justify-content: center;
