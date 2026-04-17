@@ -759,32 +759,34 @@ html {
   width: 100%;
   display: flex;
   z-index: 5;
-  transform: rotate(180deg); /* Asegura que las puntas miren hacia abajo */
+  transform: rotate(180deg);
 }
 
-.fuego-naranja-mitad-l, .fuego-naranja-mitad-r {
-  width: 50.5%;
+.fuego-naranja-solo {
+  width: 100%;
   height: auto;
-  display: block;
-}
-
-.fuego-naranja-mitad-r {
-  transform: scaleX(-1);
+  object-fit: cover;
 }
 
 .final-container {
-  width: 95%;
-  max-width: 1600px; /* Más ancho para que quepa todo grande */
+  width: 100%; /* Llenar ancho total */
+  max-width: 1800px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centrado */
-  gap: 20px;
+  justify-content: space-between;
 }
 
-.final-left, .final-right {
+.final-left-image, .final-right-visuals {
   flex: 1;
   display: flex;
+}
+
+.final-left-image {
+  justify-content: flex-start; /* Pegada a la pared izquierda */
+}
+
+.final-right-visuals {
   justify-content: center;
 }
 
@@ -820,9 +822,10 @@ html {
 }
 
 .final-img-texto {
-  width: 100%; /* Tamaño Igualado */
-  max-width: 750px;
+  width: 100%;
+  max-width: 900px; /* Aún más grande */
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
+  margin-left: 0; /* Asegura contacto con el borde si es necesario */
 }
 
 @keyframes pulseFuego {
