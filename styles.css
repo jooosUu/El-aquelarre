@@ -791,7 +791,7 @@ html {
 }
 
 .final-left-visuals {
-  justify-content: center;
+  justify-content: flex-start; /* Pegado al borde izquierdo */
 }
 
 .final-right-image {
@@ -805,7 +805,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: flex-end; /* Alinear abajo */
-  transform: translateY(-2%) translateX(12%); /* Más a la derecha para superponerse fuertemente */
 }
 
 .final-fuego-azul {
@@ -821,7 +820,6 @@ html {
   width: 110%; /* Dama más grande */
   max-width: 850px;
   position: relative;
-  left: 40px; /* Mueve a la señora más a la derecha independientemente */
   z-index: 3; /* Siempre al frente de todo */
 }
 
@@ -830,7 +828,7 @@ html {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-left: -80px; /* Acerca la bola a la izquierda para garantizar la superposición debajo de la dama */
+  margin-left: -150px; /* Acerca la bola a la izquierda para que la Dama quede enfrente */
 }
 
 .final-img-texto {
