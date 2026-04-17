@@ -242,37 +242,38 @@
       init();
     });
 
-    /* ======== FUNCIONALIDAD DRAG & DROP PARA TARJETAS ======== */
-    const tarjetas = document.querySelectorAll('.clan-card');
-    let activeCard = null;
-    let offsetX, offsetY;
-
-    tarjetas.forEach(card => {
-      card.addEventListener('mousedown', (e) => {
-        activeCard = card;
-        // Pausar animación mientras se arrastra
-        activeCard.style.animation = 'none';
-        const rect = activeCard.getBoundingClientRect();
-        offsetX = e.clientX - rect.left;
-        offsetY = e.clientY - rect.top;
-        activeCard.style.zIndex = '1000';
-      });
-    });
+    /* ======== EFECTO REPELENTE PARA TARJETAS (ESTILO PARTÍCULAS) ======== */
+    const clanCards = document.querySelectorAll('.clan-card');
+    const REPEL_RADIUS = 250;
+    const REPEL_STRENGTH = 60;
 
     window.addEventListener('mousemove', (e) => {
-      if (!activeCard) return;
-      
-      const parentRect = activeCard.parentElement.getBoundingClientRect();
-      const x = e.clientX - parentRect.left - offsetX;
-      const y = e.clientY - parentRect.top - offsetY;
+      clanCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenterX = rect.left + rect.width / 2;
+        const cardCenterY = rect.top + rect.height / 2;
 
-      activeCard.style.left = `${x}px`;
-      activeCard.style.top = `${y}px`;
-      activeCard.style.position = 'absolute';
-    });
+        const dx = e.clientX - cardCenterX;
+        const dy = e.clientY - cardCenterY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-    window.addEventListener('mouseup', () => {
-      activeCard = null;
+        if (distance < REPEL_RADIUS) {
+          // Calcular fuerza de repulsión
+          const force = (REPEL_RADIUS - distance) / REPEL_RADIUS;
+          const moveX = (dx / distance) * force * -REPEL_STRENGTH;
+          const moveY = (dy / distance) * force * -REPEL_STRENGTH;
+
+          // Recuperar la rotación original de la clase o estilo
+          const rotationMatch = card.style.transform.match(/rotate\(([^)]+)\)/) || 
+                                window.getComputedStyle(card).transform.match(/rotate\(([^)]+)\)/);
+          
+          // Aplicar traslación manteniendo la rotación original del diseño
+          card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+        } else {
+          // Volver a posición original suavemente (vía CSS transition)
+          card.style.transform = `translate(0px, 0px)`;
+        }
+      });
     });
   </script>
 

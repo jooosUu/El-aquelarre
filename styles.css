@@ -672,7 +672,6 @@ html {
   margin-top: 20px;
   margin-bottom: 60px;
   line-height: 1.2;
-  text-shadow: 2px 2px 0px rgba(255,255,255,0.2);
 }
 
 .clan-tarjetas {
@@ -686,8 +685,7 @@ html {
 .clan-card {
   position: absolute;
   width: 320px; /* Un poco más grandes */
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+  transition: transform 0.2s ease-out; /* Suave pero rápido para el repel */
 }
 
 /* Posiciones exactas calcadas de la referencia */
