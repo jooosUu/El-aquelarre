@@ -688,17 +688,15 @@ html {
   transition: transform 0.2s ease-out; /* Suave pero rápido para el repel */
 }
 
-/* Posiciones de "Caos Organizado" para alejarlo de un grid */
-.pos-1 { top: 10%; left: -5%; transform: rotate(-15deg); }
-.pos-2 { top: 0%; right: 0%; transform: rotate(20deg); }
-.pos-3 { top: 35%; left: 10%; transform: rotate(-5deg); }
-.pos-4 { top: 30%; right: 15%; transform: rotate(15deg); }
-.pos-5 { top: 60%; left: -2%; transform: rotate(-10deg); }
-.pos-6 { top: 55%; right: -5%; transform: rotate(8deg); }
+/* Posiciones de "Caos Organizado" (Volvemos a 4) */
+.pos-1 { top: 10%; left: -8%; transform: rotate(-15deg); }
+.pos-2 { top: 0%; right: -5%; transform: rotate(20deg); }
+.pos-3 { top: 48%; left: 12%; transform: rotate(-5deg); }
+.pos-4 { top: 38%; right: -2%; transform: rotate(15deg); }
 
 .clan-card {
   position: absolute;
-  width: 300px;
+  width: 320px;
   transition: transform 0.2s ease-out;
   animation: floating-card 6s infinite alternate ease-in-out;
 }
@@ -707,8 +705,6 @@ html {
 .pos-2 { animation-delay: 0.5s; }
 .pos-3 { animation-delay: 1s; }
 .pos-4 { animation-delay: 0.2s; }
-.pos-5 { animation-delay: 0.8s; }
-.pos-6 { animation-delay: 0.4s; }
 
 .clan-card:hover {
   transform: scale(1.1) !important;

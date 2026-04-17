@@ -116,14 +116,12 @@
     <div class="unete-content">
       <h2 class="unete-titulo">¡ÚNETE A NUESTRO CLAN Y APRENDAMOS JUNTAS!</h2>
       
-      <!-- Galería de tarjetas del clan (Dispersión total) -->
+      <!-- Galería de tarjetas del clan -->
       <div class="clan-tarjetas">
         <img src="tarjeta 1 unete alclan.png" alt="Card" class="clan-card pos-1">
         <img src="tarjeta 1 unete alclan.png" alt="Card" class="clan-card pos-2">
         <img src="tarjeta 1 unete alclan.png" alt="Card" class="clan-card pos-3">
         <img src="tarjeta 1 unete alclan.png" alt="Card" class="clan-card pos-4">
-        <img src="tarjeta 1 unete alclan.png" alt="Card" class="clan-card pos-5">
-        <img src="tarjeta 1 unete alclan.png" alt="Card" class="clan-card pos-6">
       </div>
     </div>
     <!-- Bola Rosada para el cursor -->
@@ -249,15 +247,15 @@
     /* ======== LÓGICA DE BOLA ROSADA Y REPELENTE MEJORADO ======== */
     const clanCards = document.querySelectorAll('.clan-card');
     const cursorBola = document.getElementById('cursor-bola');
-    const REPEL_RADIUS = 450; // Rango más amplio de acción
-    const REPEL_STRENGTH = 200; // Mucha más fuerza de empuje
+    const REPEL_RADIUS = 500; // Radio aún más amplio
+    const REPEL_STRENGTH = 450; // Fuerza masiva para que DESPLACEN de verdad
 
     window.addEventListener('mousemove', (e) => {
       // Mover la bola rosada
       cursorBola.style.left = `${e.clientX}px`;
       cursorBola.style.top = `${e.clientY}px`;
 
-      // Repelente de cartas
+      // Repelente de cartas - Desplazamiento puro
       clanCards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const cardCenterX = rect.left + rect.width / 2;
@@ -272,7 +270,8 @@
           const moveX = (dx / distance) * force * -REPEL_STRENGTH;
           const moveY = (dy / distance) * force * -REPEL_STRENGTH;
           
-          card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+          // Solo translate, sin scale para que no parezca que crecen
+          card.style.transform = `translate(${moveX}px, ${moveY}px)`;
         } else {
           card.style.transform = `translate(0px, 0px)`;
         }
