@@ -303,6 +303,23 @@
         }
       });
     });
+
+    // Resetear letras al salir de la sección
+    const seccionUnete = document.getElementById('contacto');
+    seccionUnete.addEventListener('mouseleave', () => {
+      posLetras = posLetras.map(() => ({ x: 0, y: 0 }));
+      letras.forEach(letra => {
+        letra.style.transition = "transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
+        letra.style.transform = `translate(0px, 0px)`;
+      });
+      
+      // Quitar la transición extra después de que terminen de volver para que el repel siga siendo reactivo
+      setTimeout(() => {
+        letras.forEach(letra => {
+          letra.style.transition = "transform 0.1s ease-out";
+        });
+      }, 800);
+    });
   </script>
 
 </body>
