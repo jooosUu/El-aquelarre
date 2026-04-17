@@ -394,7 +394,7 @@ img {
   position: relative;
   width: 100%;
   max-width: 1400px;
-  aspect-ratio: 12 / 10; /* Bloquea la proporción para que tablero y bolsa nunca se desfasen */
+  aspect-ratio: 16 / 9; /* Proporción más horizontal para evitar el corte inferior */
   margin: 0 auto;
 }
 
@@ -414,10 +414,10 @@ img {
 /* Conjunto Integral: Tablero y Bolsa combinados nativamente */
 .kit-bolsa-tablero {
   position: absolute;
-  top: 20%; 
-  left: 8%; /* Alineada al cálculo del margen interno del tablero */
-  width: 50%; /* Más pequeña para no ahogar la pantalla y coincidir con el render */
-  max-width: 800px;
+  top: 10%; /* Subirla para que no se corte abajo */
+  left: 5%; 
+  width: 45%; /* Aún más pequeña como pediste */
+  max-width: 650px;
   z-index: 5;
   display: block;
   filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.6));
@@ -465,15 +465,15 @@ img {
   filter: drop-shadow(0px 50px 80px rgba(0,0,0,0.8));
 }
 
-/* T1 Negra/Fuego. Z-index inferior para que la blanca la solape */
+/* T1 Negra/Fuego. Z-index SUPERIOR para que esté sobre la blanca */
 .t1 {
   top: 0;
   right: 25%;
   transform: rotate(-18deg);
-  z-index: 6; 
+  z-index: 8; /* <--- Ahora sobre la 2 */
 }
 
-/* T2 Blanca/12. Z-index superior para solapar a la negra */
+/* T2 Blanca/12. Z-index INFERIOR */
 .t2 {
   top: 35%;
   right: -5%;
