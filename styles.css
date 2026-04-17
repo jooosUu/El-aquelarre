@@ -804,12 +804,13 @@ html {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end; /* Alinear abajo */
+  transform: translateY(15%); /* Mover ambos más hacia abajo */
 }
 
 .final-fuego-azul {
-  width: 110%; /* Restaurado a su tamaño original grande */
-  max-width: 900px;
+  width: 85%; /* Mucho más pequeño, ya no será un "fuego gigante" */
+  max-width: 750px;
   position: absolute;
   z-index: 2; /* Adelante de la bola rosa (z-index 1) pero detrás de la dama (z-index 3) */
   animation: pulseFuego 4s infinite alternate ease-in-out;
