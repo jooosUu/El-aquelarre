@@ -805,20 +805,20 @@ html {
   display: flex;
   justify-content: center;
   align-items: flex-end; /* Alinear abajo */
-  transform: translateY(15%); /* Mover ambos más hacia abajo */
+  transform: translateY(5%); /* Más arriba que antes */
 }
 
 .final-fuego-azul {
-  width: 85%; /* Mucho más pequeño, ya no será un "fuego gigante" */
-  max-width: 750px;
+  width: 95%; /* Fuego más grande */
+  max-width: 850px;
   position: absolute;
   z-index: 2; /* Adelante de la bola rosa (z-index 1) pero detrás de la dama (z-index 3) */
   animation: pulseFuego 4s infinite alternate ease-in-out;
 }
 
 .final-dama {
-  width: 100%;
-  max-width: 700px;
+  width: 110%; /* Dama más grande */
+  max-width: 850px;
   position: relative;
   z-index: 3; /* Siempre al frente de todo */
 }
