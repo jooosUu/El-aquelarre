@@ -411,29 +411,24 @@ img {
   max-width: 380px;
 }
 
-/* El Tablero: Sin rotaciones CSS, escala estrictamente con el contenedor */
-.kit-tablero {
+/* Conjunto Integral: Tablero y Bolsa combinados nativamente */
+.kit-bolsa-tablero {
   position: absolute;
-  top: 18%; 
-  left: 4%;
-  width: 56%; 
-  z-index: 2;
+  top: 15%; 
+  left: 2%; /* Ligeramente recargado a la izquierda según el render visual integral */
+  width: 70%;  /* Domina ampliamente el espacio central e izquierdo */
+  z-index: 5;
   display: block;
-  opacity: 1 !important;
-  transform: none !important; /* Estático: El archivo de imagen ya viene con su inclinación y perspectiva */
-  animation: none !important;
-  filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.5));
+  filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.6));
 }
 
-/* Bolsa al centro abajo firme, escala a la par que el tablero */
-.kit-bolsa {
-  position: absolute;
-  bottom: 0%; /* Empatando al borde inferior */
-  left: 45%; /* Corrida a la derecha para que el asa cruce exacto */
-  width: 53%; 
-  z-index: 5; 
-  opacity: 1 !important;
-  filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.6));
+/* Animación sutil combinada para no marear */
+@keyframes flotarSuave {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+.flotar-suave {
+  animation: flotarSuave 5s infinite alternate ease-in-out;
 }
 
 /* Tarjetas, a la derecha ancladas */
