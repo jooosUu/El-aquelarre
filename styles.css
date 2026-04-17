@@ -639,7 +639,7 @@ html {
 .seccion-unete {
   background-color: var(--orange);
   min-height: 100vh;
-  padding: 0 0 100px 0;
+  padding: 100px 0 100px 0;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -649,20 +649,23 @@ html {
 
 .divisor-fuego {
   width: 100%;
-  height: 80px;
+  height: 90px;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
+  justify-content: center;
+  position: absolute;
+  top: -45px; /* Solapamiento con la sección anterior */
+  z-index: 5;
+  transform: rotate(180deg); /* Invertido para que las puntas miren hacia arriba */
 }
 
 .fuego-mitad-l, .fuego-mitad-r {
-  width: 50%;
+  width: 50.5%; /* Un poquito más para evitar gaps en el centro */
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .fuego-mitad-r {
-  transform: scaleX(-1); /* Espejado para que nazcan del centro o se encuentren */
+  transform: scaleX(-1); /* Espejado lateral */
 }
 
 .unete-content {
