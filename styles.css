@@ -408,13 +408,71 @@ img {
 }
 
 .kit-estrellas-central {
-  position: relative;
-  display: block;
-  margin: 2% auto 0 auto;
-  width: 60%; /* Duplicado (x2) de lo anterior para que sea imponente */
-  max-width: 1200px; /* Margen de seguridad para que no toque los bordes laterales */
+  position: absolute;
+  top: 35%; /* Más abajo como pediste */
+  left: 30%; /* Desplazada un poco a la izquierda */
+  transform: translateX(-50%);
+  width: 75%; /* Un poco más grande (era 60%) */
+  max-width: 1300px;
   filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.3));
+  z-index: 5;
 }
+
+/* Tarjetas vuelven a la carga */
+.tarjetas-grupo {
+  position: absolute;
+  top: 8%; 
+  right: 5%;
+  width: 28%;
+  height: auto;
+  aspect-ratio: 1;
+  z-index: 6;
+}
+
+.kit-tarjeta {
+  position: absolute;
+  width: 65%; 
+  filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.5));
+  opacity: 1 !important;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kit-tarjeta.zoomed {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(1.1) rotate(0deg) !important;
+  z-index: 9999 !important;
+  animation: none !important; 
+  filter: drop-shadow(0px 50px 80px rgba(0,0,0,0.8));
+}
+
+.t1 {
+  top: 0;
+  right: 25%;
+  transform: rotate(-15deg);
+  z-index: 7; 
+}
+
+.t2 {
+  top: 35%;
+  right: -5%;
+  transform: rotate(15deg);
+  z-index: 8; 
+}
+
+/* Animaciones flotantes */
+@keyframes flotarT1 {
+  0% { transform: rotate(-15deg) translateY(0); }
+  100% { transform: rotate(-13deg) translateY(-10px); }
+}
+@keyframes flotarT2 {
+  0% { transform: rotate(15deg) translateY(0); }
+  100% { transform: rotate(17deg) translateY(-15px); }
+}
+.flotar-t1 { animation: flotarT1 4.5s infinite alternate ease-in-out; }
+.flotar-t2 { animation: flotarT2 4s infinite alternate ease-in-out; }
 
 /* Animación sutil combinada para no marear */
 @keyframes flotarSuave {
