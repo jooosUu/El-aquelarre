@@ -774,7 +774,6 @@ html {
   width: 100%;
   height: auto;
   display: block;
-  transform: scaleY(-1); /* VOLTEADO HACIA ABAJO */
 }
 
 .final-container {
