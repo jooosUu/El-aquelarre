@@ -759,7 +759,7 @@ html {
   width: 100%;
   display: flex;
   z-index: 5;
-  transform: rotate(180deg);
+  transform: scaleY(-1); /* Volteado verticalmente para que los picos apunten hacia abajo */
 }
 
 .fuego-naranja-solo {
