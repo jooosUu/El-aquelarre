@@ -738,17 +738,138 @@ html {
   100% { margin-top: -25px; }
 }
 
-/* Divisor inferior extra decorativo */
-.divisor-fuego-inferior {
-  width: 100%;
-  height: 60px;
-  background-image: url('vector fuego azul.png');
-  background-repeat: repeat-x;
-  background-size: contain;
-  transform: rotate(180deg);
+/* ============================================
+   SECCIÓN FINAL: DONDE ENCONTRARNOS
+   ============================================ */
+.seccion-final {
+  background-color: #ee9ebc; /* Rosa/Magenta suave de la referencia */
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+}
+
+/* Divisor Naranja (Top) */
+.divisor-fuego-naranja {
   position: absolute;
-  bottom: 0;
-  filter: hue-rotate(140deg) brightness(1.1); /* Rosado/Naranja */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  z-index: 5;
+  filter: hue-rotate(160deg) saturate(3) brightness(1.2); /* De azul a Naranja/Ámbar */
+}
+
+.fuego-naranja-mitad-l, .fuego-naranja-mitad-r {
+  width: 50.5%;
+  height: auto;
+  display: block;
+}
+
+.fuego-naranja-mitad-r {
+  transform: scaleX(-1);
+}
+
+.final-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.final-left, .final-right {
+  flex: 1;
+}
+
+/* Lado Visual (Dama + Fuego) */
+.final-visuals {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.final-fuego-azul {
+  width: 100%;
+  max-width: 700px;
+  position: absolute;
+  z-index: 1;
+  animation: pulseFuego 4s infinite alternate ease-in-out;
+}
+
+.final-dama {
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes pulseFuego {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Lado Info (Textos) */
+.final-info {
+  padding-left: 50px;
+}
+
+.final-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--dark-purple);
+  margin-bottom: 5px;
+}
+
+.final-divisor-line {
+  width: 100%;
+  height: 8px;
+  background-color: #141b63; /* Azul oscuro de la línea */
+  margin-bottom: 25px;
+}
+
+.final-p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  color: var(--dark-purple);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.final-grafico-bola {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.img-bola-final {
+  width: 60%;
+  max-width: 350px;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .final-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .final-info {
+    padding-left: 0;
+    margin-top: 50px;
+  }
+  .final-p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-grafico-bola {
+    justify-content: center;
+  }
 }
 
 /* Bola Rosada que envuelve el cursor - Intensificada */
