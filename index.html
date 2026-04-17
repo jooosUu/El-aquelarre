@@ -304,21 +304,30 @@
       });
     });
 
-    // Resetear letras al salir de la sección
+    // Resetear letras al salir de la sección con un TIMER
     const seccionUnete = document.getElementById('contacto');
+    let resetTimer = null;
+
+    seccionUnete.addEventListener('mouseenter', () => {
+      if (resetTimer) clearTimeout(resetTimer);
+    });
+
     seccionUnete.addEventListener('mouseleave', () => {
-      posLetras = posLetras.map(() => ({ x: 0, y: 0 }));
-      letras.forEach(letra => {
-        letra.style.transition = "transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
-        letra.style.transform = `translate(0px, 0px)`;
-      });
-      
-      // Quitar la transición extra después de que terminen de volver para que el repel siga siendo reactivo
-      setTimeout(() => {
+      // Esperar 1.5 segundos antes de resetear
+      resetTimer = setTimeout(() => {
+        posLetras = posLetras.map(() => ({ x: 0, y: 0 }));
         letras.forEach(letra => {
-          letra.style.transition = "transform 0.1s ease-out";
+          letra.style.transition = "transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)";
+          letra.style.transform = `translate(0px, 0px)`;
         });
-      }, 800);
+        
+        // Quitar la transición extra después de que terminen de volver
+        setTimeout(() => {
+          letras.forEach(letra => {
+            letra.style.transition = "transform 0.1s ease-out";
+          });
+        }, 1500);
+      }, 1500); // El timer de espera solicitado
     });
   </script>
 
