@@ -777,17 +777,17 @@ html {
   justify-content: space-between;
 }
 
-.final-left-image, .final-right-visuals {
+.final-left-visuals, .final-right-image {
   flex: 1;
   display: flex;
 }
 
-.final-left-image {
-  justify-content: flex-start; /* Pegada a la pared izquierda */
+.final-left-visuals {
+  justify-content: center;
 }
 
-.final-right-visuals {
-  justify-content: center;
+.final-right-image {
+  justify-content: flex-end; /* Pegada a la pared derecha */
 }
 
 /* Lado Visual (Dama + Fuego) */
