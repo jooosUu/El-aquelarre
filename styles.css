@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Evita que el menú tape el inicio de las secciones */
 }
 
 body {
@@ -68,6 +69,13 @@ img {
   font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
+  border-radius: 8px; /* Redondear un poco */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-inicio:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(227, 94, 29, 0.4);
 }
 
 .nav-right {
@@ -94,21 +102,25 @@ img {
   font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
+  border-radius: 8px; /* Redondear un poco */
   transition: transform 0.2s, background-color 0.2s;
 }
 
 .nav-links a:hover {
   background-color: #312185;
+  transform: translateY(-2px);
 }
 
 .search-container {
   display: flex;
   align-items: center;
-  background-color: var(--off-white);
-  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.95); /* Blanco un poco más premium */
+  border-radius: 50px; /* Estética redondeada de cápsula */
   overflow: hidden;
   width: 100%;
   max-width: 200px;
+  padding: 0 10px;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .search-container input {
