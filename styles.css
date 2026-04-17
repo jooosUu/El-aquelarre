@@ -805,13 +805,14 @@ html {
   display: flex;
   justify-content: center;
   align-items: flex-end; /* Alinear abajo */
-  transform: translateY(-2%) translateX(8%); /* Mover más arriba y a la derecha */
+  transform: translateY(-2%) translateX(12%); /* Más a la derecha para superponerse fuertemente */
 }
 
 .final-fuego-azul {
   width: 95%; /* Fuego más grande */
   max-width: 850px;
   position: absolute;
+  bottom: 50px; /* Mueve el fuego un poco hacia arriba independientemente */
   z-index: 2; /* Adelante de la bola rosa (z-index 1) pero detrás de la dama (z-index 3) */
   animation: pulseFuego 4s infinite alternate ease-in-out;
 }
@@ -820,6 +821,7 @@ html {
   width: 110%; /* Dama más grande */
   max-width: 850px;
   position: relative;
+  left: 40px; /* Mueve a la señora más a la derecha independientemente */
   z-index: 3; /* Siempre al frente de todo */
 }
 
@@ -828,11 +830,12 @@ html {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-left: -80px; /* Acerca la bola a la izquierda para garantizar la superposición debajo de la dama */
 }
 
 .final-img-texto {
-  width: 100%;
-  max-width: 900px;
+  width: 115%; /* Bola Rosa más grande como pediste */
+  max-width: 1100px;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
   margin-left: 0;
   position: relative;
