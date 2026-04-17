@@ -829,7 +829,7 @@ html {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-left: -150px; /* Acerca la bola a la izquierda para que la Dama quede enfrente */
+  margin-left: -200px; /* Más a la izquierda */
 }
 
 .final-img-texto {
