@@ -805,6 +805,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: flex-end; /* Alinear abajo */
+  transform: translateX(5%); /* Un poco a la derecha */
 }
 
 .final-fuego-azul {
