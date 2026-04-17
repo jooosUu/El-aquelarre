@@ -649,11 +649,20 @@ html {
 
 .divisor-fuego {
   width: 100%;
-  height: 60px;
-  background-image: url('vector fuego azul.png');
-  background-repeat: repeat-x;
-  background-size: contain;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 50px;
+}
+
+.fuego-mitad-l, .fuego-mitad-r {
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.fuego-mitad-r {
+  transform: scaleX(-1); /* Espejado para que nazcan del centro o se encuentren */
 }
 
 .unete-content {
@@ -672,6 +681,15 @@ html {
   margin-top: 20px;
   margin-bottom: 60px;
   line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.unete-titulo span {
+  display: inline-block;
+  white-space: pre;
+  transition: transform 0.1s ease-out; /* Muy rápido para que parezca que las arrastras */
 }
 
 .clan-tarjetas {
