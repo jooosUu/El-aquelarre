@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Aquelarre - Enciende tu poder.">
+  <title>El Aquelarre — Enciende tu poder</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="#inicio" class="btn-inicio">INICIO</a>
+    </div>
+    
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="#quienes-somos">NOSOTRAS</a>
+        <a href="#informacion">INFORMACIÓN</a>
+        <a href="#nuestro-kit">KITS</a>
+        <a href="#contacto">CONTACTO</a>
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Buscar" id="searchInput" aria-label="Buscar en el sitio">
+        <button class="search-btn" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== HERO / INICIO ======== -->
+  <section id="inicio" class="hero">
+    <!-- El logo centrado -->
+    <div class="hero-content">
+      <img src="Logo.png" alt="El Aquelarre - Enciende tu poder" class="hero-logo">
+    </div>
+  </section>
+
+  <!-- ======== QUIÉNES SOMOS ======== -->
+  <section id="quienes-somos" class="seccion-nosotras anim-container">
+    <img src="quienes-somos.png" alt="Fondo quiénes somos" class="fondo-nosotras">
+    
+    <!-- Fueguitos decorativos -->
+    <img src="fueguitos.png" alt="Fueguitos" class="fueguitos-overlay">
+    
+    <div class="damas-wrapper">
+      <img src="Dama-izquierda.png" alt="Dama Izquierda" class="dama-izq">
+      <img src="Dama-derecha.png" alt="Dama Derecha" class="dama-der">
+    </div>
+  </section>
+
+  <!-- ======== INFORMACIÓN ======== -->
+  <section id="informacion" class="seccion-info anim-container">
+    <img src="rosa-fondo.png" alt="Fondo rosa" class="fondo-rosa">
+
+    <div class="info-layout">
+      <!-- Izquierda: Bola naranja con texto integrado -->
+      <div class="info-bloque-izq">
+        <img src="Informacion3.png" alt="Texto Información" class="img-texto-bola">
+      </div>
+
+      <!-- Derecha: Dama Grande -->
+      <div class="info-graficos">
+        <img src="Fuego-grande -azul.png" alt="Fuego Azul" class="fuego-azul">
+        <img src="Dama-grande 1.png" alt="Dama Grande" class="dama-grande">
+      </div>
+    </div>
+    
+    <!-- Fuego Base Azul -->
+    <div class="fuego-azul-wrapper">
+      <img src="fueguito azul.png" alt="Fueguito azul base" class="fueguito-base">
+      <img src="fueguito azul.png" alt="Fueguito azul base" class="fueguito-base">
+    </div>
+  </section>
+
+  <!-- ======== NUESTRO KIT ======== -->
+  <section id="kits" class="seccion-kits anim-container">
+    <div class="kits-layout">
+      
+      <!-- Título de la sección -->
+      <div class="kits-header">
+        <img src="titulo nuestrokit.png" alt="Nuestro Kit" class="titulo-kits" />
+      </div>
+
+      <!-- Vitrina interactiva de los elementos del kit -->
+      <div class="kit-vitrina">
+        
+        <!-- Tablero flotante detrás (izquierda) -->
+        <img src="tablero-juego.png" alt="Tablero de Juego" class="kit-tablero flotar-tablero">
+
+        <!-- Bolsa Principal (frente y al centro-abajo) -->
+        <img src="Bolsa.png" alt="Bolsa El Aquelarre" class="kit-bolsa flotar-bolsa">
+
+        <!-- Tarjetas desplegadas estéticamente (derecha arriba) -->
+        <div class="tarjetas-grupo">
+          <!-- Tarjeta 2 va ABAJO ahora (en el HTML renderiza primero, pero controlamos el orden en CSS) -->
+          <img src="tarjeta-2.png" alt="Tarjeta 2" class="kit-tarjeta t2 flotar-t2" onclick="this.classList.toggle('zoomed')">
+          <!-- Tarjeta 1 va SOBRE la 2 -->
+          <img src="tarjeta-1.png" alt="Tarjeta 1" class="kit-tarjeta t1 flotar-t1" onclick="this.classList.toggle('zoomed')">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SCRIPTS ======== -->
+  <script>
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.anim-container').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>

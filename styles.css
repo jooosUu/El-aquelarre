@@ -1,0 +1,556 @@
+/* ============================================
+   El Aquelarre - Styles Responsive Total Match
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---- Variables ---- */
+:root {
+  --magenta: #C90076;
+  --dark-purple: #231665;
+  --deep-blue: #120A38;
+  --light-pink: #EEA2BD;
+  --orange: #E35E1D;
+  --off-white: #FFFFFF;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--deep-blue);
+  color: var(--off-white);
+  overflow-x: hidden;
+}
+
+a { 
+  text-decoration: none; 
+}
+
+img { 
+  max-width: 100%; 
+  display: block; 
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  width: 100%;
+  background-color: var(--magenta);
+  padding: 1rem 47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: flex-start;
+}
+
+.btn-inicio {
+  background-color: var(--orange);
+  color: var(--off-white);
+  padding: 0.6rem 2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-purple);
+  color: var(--off-white);
+  padding: 0.6rem 1.4rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.nav-links a:hover {
+  background-color: #312185;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--off-white);
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 200px;
+}
+
+.search-container input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: var(--magenta);
+  outline: none;
+}
+
+.search-container input::placeholder {
+  color: #888;
+}
+
+.search-btn {
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--magenta);
+}
+
+/* ============================================
+   HERO / INICIO
+   ============================================ */
+.hero {
+  background: linear-gradient(180deg, #2C1A72 0%, #150849 100%);
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh; /* Ocupará gran parte pero ligeramente más pequeño que la pantalla total */
+  padding: 0;
+  position: relative;
+  z-index: 2; /* Encima de la sección nosotras */
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem 2rem;
+}
+
+.hero-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  animation: floatLogo 6s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0% { transform: translateY(0px); filter: drop-shadow(0 0px 10px rgba(0,0,0,0)); }
+  50% { transform: translateY(-15px); filter: drop-shadow(0 15px 15px rgba(0,0,0,0.2)); }
+  100% { transform: translateY(0px); filter: drop-shadow(0 0px 10px rgba(0,0,0,0)); }
+}
+
+/* ============================================
+   QUIÉNES SOMOS
+   ============================================ */
+.seccion-nosotras {
+  position: relative;
+  width: 100%;
+  background-color: var(--light-pink);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Sube LA IMAGEN pero menos que antes, para no cortar la ola. 
+     Ajusté este valor según tu captura. */
+  margin-top: -3vw; 
+  z-index: 1; /* Abajo del hero azul */
+}
+
+.fondo-nosotras {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  position: relative;
+  z-index: 1; /* El fondo se queda en la capa de atrás */
+}
+
+/* Fueguitos Overlay */
+.fueguitos-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.damas-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2; /* Sobre la imagen de fondo */
+}
+
+.dama-izq, .dama-der {
+  position: absolute;
+  height: 38vw; /* Forzamos la MISMA altura para garantizar el mismo tamaño */
+  max-height: 480px;
+  width: auto; /* Mantienen sus proporciones reales */
+  opacity: 0;
+  transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  bottom: 3.5vw; /* Nivel base idéntico, ligeramente arriba del fondo */
+}
+
+.dama-izq {
+  left: 0; /* Cero espacio a la izquierda para ocultar el corte y separar */
+  transform: translateX(-50px) translateY(30px);
+}
+
+.dama-der {
+  right: 0; /* Acomodada al borde derecho */
+  transform: translateX(50px) translateY(30px);
+}
+
+.anim-container.visible .dama-izq {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+  animation: floatLady 4s ease-in-out infinite 1.5s; /* flota constante después de entrar */
+}
+
+.anim-container.visible .dama-der {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+  animation: floatLady 4s ease-in-out infinite 2.5s; /* flota desfasada */
+}
+
+@keyframes floatLady {
+  0% { transform: translateX(0) translateY(0px); }
+  50% { transform: translateX(0) translateY(-12px); }
+  100% { transform: translateX(0) translateY(0px); }
+}
+
+/* ============================================
+   INFORMACIÓN
+   ============================================ */
+.seccion-info {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  min-height: 80vh;
+  margin-top: -4vw; /* Subimos la sección entera */
+  padding: 8vw 0 0vw 0; /* Quitamos el padding inferior para que el layout toque la zona del fuego-base */
+  z-index: 5;
+}
+
+.fondo-rosa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* Base rosa provista */
+}
+
+.info-layout {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  width: 100%;
+  max-width: 100%; /* Ocupa completamente todo el ancho de la pantalla */
+  margin: 0;
+  align-items: flex-end; /* CRUCIAL: Empareja la bola naranja y la dama al mismo suelo */
+  padding: 0 5% 0 0; /* Padding derecho, cero protección a la izquierda */
+}
+
+.info-bloque-izq {
+  flex: 1.4; /* Toma más de la mitad para forzar el crecimiento de la bola */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.img-texto-bola {
+  width: 100%;
+  max-width: 1100px; /* Límite monstruosamente grande */
+  min-width: 700px; /* Asegura un volumen grande base */
+  height: auto;
+  opacity: 0;
+  transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-container.visible .img-texto-bola {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fuego-azul-wrapper {
+  position: absolute;
+  bottom: 0; /* Anclado firmemente abajo en el piso de la sección */
+  left: 0;
+  width: 100%;
+  display: flex;
+  z-index: 5;
+}
+
+.fueguito-base {
+  width: 50.5%;
+  height: auto;
+  display: block;
+  margin-left: -1px;
+}
+
+.info-graficos {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-end; /* Pegar todo hacia el borde derecho */
+  align-items: flex-end; /* Vital: alinear sus bases perfectamente abajo */
+  height: 100%;
+}
+
+@keyframes flotarFuego {
+  0% { transform: translateY(0) scale(1) rotate(-1deg); }
+  100% { transform: translateY(-5px) scale(1.02) rotate(1deg); }
+}
+
+.fuego-azul {
+  position: absolute;
+  bottom: -4vw; /* Ligeramente hacia abajo para enmarcarla bien desde los hombros */
+  right: -5rem; /* Puesto significativamente más a la derecha */
+  width: 125%; /* Crecimiento coordinado para cubrir su espalda y proporciones ampliadas */
+  max-width: 820px;
+  z-index: 1;
+  opacity: 1; 
+  transform-origin: bottom center; /* Escala y orbita anclado en la parte inferior para que no se desfase */
+  animation: flotarFuego 3.5s infinite alternate ease-in-out;
+}
+
+.dama-grande {
+  position: relative;
+  width: 115%; /* Ahora inmensamente escalada */
+  max-width: 750px; /* Tamaño monstruoso sin romper el alineamiento basal */
+  z-index: 2;
+  opacity: 1; 
+  transform: none; 
+  margin-right: -2rem; /* Pegada pero con aire */
+  margin-bottom: 0; /* Descansa perfectamente en el suelo como el cuadro izquierdo */
+}
+
+/* ============================================
+   SECCIÓN NUESTRO KIT
+   ============================================ */
+.seccion-kits {
+  position: relative;
+  width: 100%;
+  background-color: #141b63; /* Azul estelar */
+  padding: 5rem 2rem 10rem 2rem;
+  overflow: hidden;
+  z-index: 4;
+}
+
+.kits-layout {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 850px; /* Altura firme para albergar el canvas de composicion */
+  margin: 0 auto;
+}
+
+/* Header/Título flotante fijo arriba a la izquierda */
+.kits-header {
+  position: absolute;
+  top: 0;
+  left: 2%;
+  z-index: 10;
+}
+
+.titulo-kits {
+  width: 40vw;
+  max-width: 350px;
+}
+
+/* El Tablero: estático a la izquierda asumiendo su propio fondo/inclinación en la imagen */
+.kit-tablero {
+  position: absolute;
+  top: 15%; /* Un poco por debajo del título */
+  left: 5%;
+  width: 50%; /* Ocupa buena porción de la izquierda */
+  max-width: 650px;
+  z-index: 1;
+  display: block;
+  opacity: 1 !important;
+  transform: none !important; /* Totalmente quieto como exigiste */
+  animation: none !important;
+  filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.5));
+}
+
+/* Bolsa centrada-derecha abajo, solapando el mango */
+.kit-bolsa {
+  position: absolute;
+  bottom: -5%; /* Anclada al final */
+  left: 52%; /* Tirada hacia la derecha de la composición */
+  transform: translateX(-50%); 
+  width: 45%; 
+  max-width: 580px; 
+  z-index: 5; /* Pasa por encima del tablero y fondo */
+  opacity: 1 !important;
+  filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.6));
+}
+
+/* Animación sutil de levitación para la bolsa */
+@keyframes flotarBolsa {
+  0% { transform: translateX(-50%) translateY(0); }
+  100% { transform: translateX(-50%) translateY(-15px); }
+}
+.flotar-bolsa {
+  animation: flotarBolsa 5s infinite alternate ease-in-out;
+}
+
+/* Tarjetas idénticas a la imagen, arriba a la derecha */
+.tarjetas-grupo {
+  position: absolute;
+  top: 5%; /* Flotando bien arriba */
+  right: 5%;
+  width: 25vw;
+  max-width: 350px;
+  height: 400px;
+  z-index: 6;
+}
+
+.kit-tarjeta {
+  position: absolute;
+  width: 65%; /* Ancho proporcional al grupo */
+  filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.4));
+  opacity: 1 !important;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Zoom effect */
+.kit-tarjeta.zoomed {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) scale(2) rotate(0deg) !important;
+  z-index: 9999 !important;
+  animation: none !important; 
+  filter: drop-shadow(0px 50px 80px rgba(0,0,0,0.8));
+}
+
+/* T1 Negra/Fuego al fondo. HOY: ESTÁ POR ENCIMA y rotada izquierda */
+.t1 {
+  top: 0;
+  right: 25%;
+  transform: rotate(-15deg);
+  z-index: 7; 
+}
+
+/* T2 Blanca/12 abajo. ESTÁ POR DEBAJO DE T1 y rotada derecha */
+.t2 {
+  top: 30%;
+  right: 0%;
+  transform: rotate(15deg);
+  z-index: 6; 
+}
+
+/* Animaciones flotantes */
+@keyframes flotarT1 {
+  0% { transform: rotate(-15deg) translateY(0); }
+  100% { transform: rotate(-13deg) translateY(-10px); }
+}
+@keyframes flotarT2 {
+  0% { transform: rotate(15deg) translateY(0); }
+  100% { transform: rotate(17deg) translateY(-15px); }
+}
+.flotar-t1 { animation: flotarT1 4.5s infinite alternate ease-in-out; }
+.flotar-t2 { animation: flotarT2 4s infinite alternate ease-in-out; }
+
+/* Eliminar contenedores extra inútiles generados previamente */
+.kit-vitrina {
+  position: static; 
+}
+
+/* Fin Sección Kits */
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .nav-left {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-right {
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .hero-content {
+    padding: 2rem 1rem;
+  }
+  
+  .seccion-nosotras {
+    margin-top: -5vw;
+  }
+  
+  .dama-izq {
+    width: 45%;
+  }
+
+  .dama-der {
+    width: 55%;
+  }
+}
