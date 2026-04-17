@@ -414,8 +414,8 @@ img {
 .kit-bolsa-tablero {
   position: absolute;
   top: 15%; 
-  left: 50%;
-  transform: translateX(-50%); /* Centrado total del bloque */
+  left: 42%; /* Desplazado un poco a la izquierda según pedido */
+  transform: translateX(-50%); /* Centrado relativo a su nuevo ancla */
   width: 45%; 
   max-width: 650px;
   z-index: 5;
