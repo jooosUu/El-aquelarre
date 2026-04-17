@@ -410,9 +410,9 @@ img {
 .kit-estrellas-central {
   position: relative;
   display: block;
-  margin: 5% auto 0 auto;
-  width: 30%; /* "Un poco más pequeña" y centrada */
-  max-width: 400px;
+  margin: 2% auto 0 auto;
+  width: 60%; /* Duplicado (x2) de lo anterior para que sea imponente */
+  max-width: 1200px; /* Margen de seguridad para que no toque los bordes laterales */
   filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.3));
 }
 
