@@ -751,7 +751,7 @@ html {
   padding: 100px 0;
 }
 
-/* Divisor Naranja (Top) */
+/* Divisor Naranja (Top) - Nuevo Recurso */
 .divisor-fuego-naranja {
   position: absolute;
   top: 0;
@@ -759,7 +759,7 @@ html {
   width: 100%;
   display: flex;
   z-index: 5;
-  filter: hue-rotate(160deg) saturate(3) brightness(1.2); /* De azul a Naranja/Ámbar */
+  transform: rotate(180deg); /* Asegura que las puntas miren hacia abajo */
 }
 
 .fuego-naranja-mitad-l, .fuego-naranja-mitad-r {
@@ -773,39 +773,56 @@ html {
 }
 
 .final-container {
-  width: 90%;
-  max-width: 1400px;
+  width: 95%;
+  max-width: 1600px; /* Más ancho para que quepa todo grande */
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Centrado */
+  gap: 20px;
 }
 
 .final-left, .final-right {
   flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 /* Lado Visual (Dama + Fuego) */
 .final-visuals {
   position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .final-fuego-azul {
-  width: 100%;
-  max-width: 700px;
+  width: 110%; /* Más grande que la dama */
+  max-width: 900px;
   position: absolute;
   z-index: 1;
   animation: pulseFuego 4s infinite alternate ease-in-out;
 }
 
 .final-dama {
-  width: 90%;
-  max-width: 600px;
+  width: 100%; /* Tamaño Igualado */
+  max-width: 700px;
   position: relative;
   z-index: 2;
+}
+
+/* Lado Derecho (Bola con Texto) */
+.final-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.final-img-texto {
+  width: 100%; /* Tamaño Igualado */
+  max-width: 750px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
 }
 
 @keyframes pulseFuego {
@@ -813,62 +830,15 @@ html {
   100% { transform: scale(1.05); opacity: 1; }
 }
 
-/* Lado Info (Textos) */
-.final-info {
-  padding-left: 50px;
-}
-
-.final-titulo {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: var(--dark-purple);
-  margin-bottom: 5px;
-}
-
-.final-divisor-line {
-  width: 100%;
-  height: 8px;
-  background-color: #141b63; /* Azul oscuro de la línea */
-  margin-bottom: 25px;
-}
-
-.final-p {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
-  color: var(--dark-purple);
-  line-height: 1.6;
-  margin-bottom: 40px;
-  max-width: 600px;
-}
-
-.final-grafico-bola {
-  margin-top: 30px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.img-bola-final {
-  width: 60%;
-  max-width: 350px;
-}
-
 /* Responsivo */
 @media (max-width: 1024px) {
   .final-container {
     flex-direction: column;
     text-align: center;
+    gap: 50px;
   }
-  .final-info {
-    padding-left: 0;
-    margin-top: 50px;
-  }
-  .final-p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .final-grafico-bola {
-    justify-content: center;
+  .final-dama, .final-img-texto {
+    max-width: 500px;
   }
 }
 
