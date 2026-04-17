@@ -632,3 +632,117 @@ html {
     width: 55%;
   }
 }
+
+/* ============================================
+   SECCIÓN ÚNETE AL CLAN
+   ============================================ */
+.seccion-unete {
+  background-color: var(--orange);
+  min-height: 100vh;
+  padding: 0 0 100px 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divisor-fuego {
+  width: 100%;
+  height: 60px;
+  background-image: url('vector fuego azul.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  margin-bottom: 50px;
+}
+
+.unete-content {
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+  height: 100%;
+}
+
+.unete-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--dark-purple);
+  margin-top: 20px;
+  margin-bottom: 60px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 0px rgba(255,255,255,0.2);
+}
+
+.clan-tarjetas {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 750px; /* Espacio para el caos organizado */
+  margin: 0 auto;
+}
+
+.clan-card {
+  position: absolute;
+  width: 320px; /* Un poco más grandes */
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+}
+
+/* Posiciones exactas calcadas de la referencia */
+.floating-1 { 
+  top: 5%; 
+  left: 2%; 
+  transform: rotate(-12deg);
+  animation: floating-card 4s infinite alternate ease-in-out; 
+}
+
+.floating-2 { 
+  top: 15%; 
+  right: 5%; 
+  transform: rotate(18deg);
+  animation: floating-card 5s infinite alternate-reverse ease-in-out; 
+  z-index: 2;
+}
+
+.floating-3 { 
+  top: 48%; 
+  left: 15%; 
+  transform: rotate(-10deg);
+  animation: floating-card 4.5s infinite alternate ease-in-out; 
+  animation-delay: 1s; 
+}
+
+.floating-4 { 
+  top: 42%; 
+  right: 10%; 
+  transform: rotate(12deg);
+  animation: floating-card 5.5s infinite alternate-reverse ease-in-out; 
+  animation-delay: 0.5s; 
+  z-index: 3;
+}
+
+.clan-card:hover {
+  transform: scale(1.1) !important;
+  z-index: 10 !important;
+  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.6));
+}
+
+@keyframes floating-card {
+  0% { margin-top: 0; }
+  100% { margin-top: -25px; }
+}
+
+/* Divisor inferior extra decorativo */
+.divisor-fuego-inferior {
+  width: 100%;
+  height: 60px;
+  background-image: url('vector fuego azul.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  transform: rotate(180deg);
+  position: absolute;
+  bottom: 0;
+  filter: hue-rotate(140deg) brightness(1.1); /* Rosado/Naranja */
+}
