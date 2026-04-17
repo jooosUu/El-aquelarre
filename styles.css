@@ -759,13 +759,13 @@ html {
   width: 100%;
   display: flex;
   z-index: 5;
-  transform: scaleY(-1); /* Volteado verticalmente para que los picos apunten hacia abajo */
 }
 
 .fuego-naranja-solo {
   width: 100%;
   height: auto;
   object-fit: cover;
+  transform: rotate(180deg); /* Aseguramos que los picos apunten hacia abajo */
 }
 
 .final-container {
@@ -800,8 +800,8 @@ html {
 }
 
 .final-fuego-azul {
-  width: 85%; /* Ajuste de tamaño equilibrado */
-  max-width: 750px;
+  width: 75%; /* Más pequeño como pediste */
+  max-width: 650px;
   position: absolute;
   z-index: 2; /* Adelante de la bola rosa (z-index 1) pero detrás de la dama (z-index 3) */
   animation: pulseFuego 4s infinite alternate ease-in-out;
