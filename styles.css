@@ -409,7 +409,7 @@ img {
 
 .kit-estrellas-central {
   position: absolute;
-  top: 28%; /* Un poco más arriba */
+  top: 15%; /* Alineada con la línea amarilla debajo del título */
   left: 40%; /* Un poco más a la derecha */
   transform: translateX(-50%);
   width: 75%; /* Un poco más grande (era 60%) */
