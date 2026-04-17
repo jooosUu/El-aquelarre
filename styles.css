@@ -394,17 +394,17 @@ img {
   margin: 0 auto;
 }
 
-/* Header/Título flotante fijo arriba a la izquierda */
+/* Header/Título flotante fijo arriba a la izquierda extremo */
 .kits-header {
   position: absolute;
-  top: 5%;
-  left: 5%;
+  top: 1%; /* Más arriba según la marca amarilla */
+  left: 2%; /* Más a la izquierda */
   z-index: 10;
 }
 
 .titulo-kits {
-  width: 50%; /* Aún más grande para imitar la referencia */
-  max-width: 600px;
+  width: 65%; /* Mucho más grande como pediste */
+  max-width: 800px;
 }
 
 .kit-estrellas-central {
