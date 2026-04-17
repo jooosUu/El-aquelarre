@@ -409,8 +409,8 @@ img {
 
 .kit-estrellas-central {
   position: absolute;
-  top: 35%; /* Más abajo como pediste */
-  left: 30%; /* Desplazada un poco a la izquierda */
+  top: 28%; /* Un poco más arriba */
+  left: 40%; /* Un poco más a la derecha */
   transform: translateX(-50%);
   width: 75%; /* Un poco más grande (era 60%) */
   max-width: 1300px;
