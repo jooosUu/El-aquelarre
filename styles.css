@@ -751,20 +751,14 @@ html {
   padding: 100px 0;
 }
 
-/* Divisor Naranja (Top) - Nuevo Recurso */
-.divisor-fuego-naranja {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 5;
-}
-
-.fuego-naranja-solo {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: rotate(180deg); /* GIRADO 180 GRADOS EN LA IMAGEN */
+.seccion-final {
+  background-color: #ee9ebc; /* Rosa/Magenta suave de la referencia */
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
 }
 
 .final-container {
