@@ -124,8 +124,6 @@
         <img src="tarjeta 1 unete alclan.png" alt="Tarjeta Clan 4" class="clan-card floating-4">
       </div>
     </div>
-    <!-- Divisor inferior extra -->
-    <div class="divisor-fuego-inferior"></div>
   </section>
 
   <!-- Botón Volver al Inicio -->
@@ -242,6 +240,39 @@
 
     window.addEventListener('resize', () => {
       init();
+    });
+
+    /* ======== FUNCIONALIDAD DRAG & DROP PARA TARJETAS ======== */
+    const tarjetas = document.querySelectorAll('.clan-card');
+    let activeCard = null;
+    let offsetX, offsetY;
+
+    tarjetas.forEach(card => {
+      card.addEventListener('mousedown', (e) => {
+        activeCard = card;
+        // Pausar animación mientras se arrastra
+        activeCard.style.animation = 'none';
+        const rect = activeCard.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+        activeCard.style.zIndex = '1000';
+      });
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!activeCard) return;
+      
+      const parentRect = activeCard.parentElement.getBoundingClientRect();
+      const x = e.clientX - parentRect.left - offsetX;
+      const y = e.clientY - parentRect.top - offsetY;
+
+      activeCard.style.left = `${x}px`;
+      activeCard.style.top = `${y}px`;
+      activeCard.style.position = 'absolute';
+    });
+
+    window.addEventListener('mouseup', () => {
+      activeCard = null;
     });
   </script>
 
