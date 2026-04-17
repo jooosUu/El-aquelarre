@@ -394,7 +394,7 @@ img {
   position: relative;
   width: 100%;
   max-width: 1400px;
-  min-height: 1000px; /* Expande verticalmente para acoger el diagrama holgadamente */
+  aspect-ratio: 12 / 10; /* Bloquea la proporción para que tablero y bolsa nunca se desfasen */
   margin: 0 auto;
 }
 
@@ -407,61 +407,49 @@ img {
 }
 
 .titulo-kits {
-  width: 35vw;
+  width: 35%; /* Escala con el layout */
   max-width: 380px;
 }
 
-/* El Tablero: Ahora es libre, lo rotamos porque es la imagen suelta transparente */
+/* El Tablero: Sin rotaciones CSS, escala estrictamente con el contenedor */
 .kit-tablero {
   position: absolute;
-  top: 15%; 
-  left: 5%;
-  width: 55%; 
-  max-width: 700px;
+  top: 18%; 
+  left: 4%;
+  width: 56%; 
   z-index: 2;
   display: block;
   opacity: 1 !important;
-  transform: rotate(-15deg) !important; /* Inclinación fiel a la referencia */
+  transform: none !important; /* Estático: El archivo de imagen ya viene con su inclinación y perspectiva */
   animation: none !important;
   filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.5));
 }
 
-/* Bolsa al centro abajo firme y gigante */
+/* Bolsa al centro abajo firme, escala a la par que el tablero */
 .kit-bolsa {
   position: absolute;
-  bottom: -2%; /* Anclada para comerse el borde como la imagen original */
-  left: 50%;
-  transform: translateX(-50%); 
-  width: 60%; /* Tamaño inmenso y predominante en el centro */
-  max-width: 750px; 
+  bottom: 0%; /* Empatando al borde inferior */
+  left: 45%; /* Corrida a la derecha para que el asa cruce exacto */
+  width: 53%; 
   z-index: 5; 
   opacity: 1 !important;
   filter: drop-shadow(0px 20px 40px rgba(0,0,0,0.6));
 }
 
-/* Animación sutil de levitación para la bolsa */
-@keyframes flotarBolsa {
-  0% { transform: translateX(-50%) translateY(0); }
-  100% { transform: translateX(-50%) translateY(-15px); }
-}
-.flotar-bolsa {
-  animation: flotarBolsa 5s infinite alternate ease-in-out;
-}
-
-/* Tarjetas, a la derecha estetas */
+/* Tarjetas, a la derecha ancladas */
 .tarjetas-grupo {
   position: absolute;
-  top: 8%; /* Flotando arriba pero un pelo más bajo que el tablero */
+  top: 10%; 
   right: 5%;
-  width: 28vw;
-  max-width: 380px;
-  height: 400px;
+  width: 28%;
+  height: auto;
+  aspect-ratio: 1; /* Mantiene la caja cuadrada */
   z-index: 6;
 }
 
 .kit-tarjeta {
   position: absolute;
-  width: 60%; 
+  width: 65%; 
   filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.5));
   opacity: 1 !important;
   cursor: pointer;
@@ -481,19 +469,19 @@ img {
   filter: drop-shadow(0px 50px 80px rgba(0,0,0,0.8));
 }
 
-/* T1 Negra/Fuego. Geográficamente más arriba, pero z-index inferior para que la blanca la solape */
+/* T1 Negra/Fuego. Z-index inferior para que la blanca la solape */
 .t1 {
   top: 0;
   right: 25%;
-  transform: rotate(-18deg); /* Rotada hacia la izquierda */
+  transform: rotate(-18deg);
   z-index: 6; 
 }
 
-/* T2 Blanca/12. Geográficamente más abajo, z-index superior para solapar a la negra */
+/* T2 Blanca/12. Z-index superior para solapar a la negra */
 .t2 {
   top: 35%;
-  right: 0%;
-  transform: rotate(15deg); /* Rotada hacia la derecha */
+  right: -5%;
+  transform: rotate(15deg);
   z-index: 7; 
 }
 
