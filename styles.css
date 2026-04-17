@@ -759,13 +759,13 @@ html {
   width: 100%;
   display: flex;
   z-index: 5;
+  transform: rotate(180deg); /* Girado 180 grados como pediste para que apunte hacia abajo */
 }
 
 .fuego-naranja-solo {
   width: 100%;
   height: auto;
   object-fit: cover;
-  transform: rotate(180deg); /* Aseguramos que los picos apunten hacia abajo */
 }
 
 .final-container {
