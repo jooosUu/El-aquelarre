@@ -761,6 +761,22 @@ html {
   padding: 100px 0;
 }
 
+.divisor-fuego-naranja {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  z-index: 5;
+}
+
+.fuego-naranja-solo {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scaleY(-1); /* VOLTEADO HACIA ABAJO */
+}
+
 .final-container {
   width: 100%; /* Llenar ancho total */
   max-width: 1800px;
