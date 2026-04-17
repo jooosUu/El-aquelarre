@@ -759,6 +759,7 @@ html {
   width: 100%;
   display: flex;
   z-index: 5;
+  transform: rotate(180deg);
 }
 
 .fuego-naranja-solo {
@@ -799,18 +800,18 @@ html {
 }
 
 .final-fuego-azul {
-  width: 90%;
-  max-width: 700px;
+  width: 85%; /* Ajuste de tamaño equilibrado */
+  max-width: 750px;
   position: absolute;
-  z-index: 1;
+  z-index: 2; /* Adelante de la bola rosa (z-index 1) pero detrás de la dama (z-index 3) */
   animation: pulseFuego 4s infinite alternate ease-in-out;
 }
 
 .final-dama {
-  width: 100%; /* Tamaño Igualado */
+  width: 100%;
   max-width: 700px;
   position: relative;
-  z-index: 2;
+  z-index: 3; /* Siempre al frente de todo */
 }
 
 /* Lado Derecho (Bola con Texto) */
@@ -822,11 +823,11 @@ html {
 
 .final-img-texto {
   width: 100%;
-  max-width: 900px; /* Aún más grande */
+  max-width: 900px;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
-  margin-left: 0; /* Asegura contacto con el borde si es necesario */
+  margin-left: 0;
   position: relative;
-  z-index: 3;
+  z-index: 1;
 }
 
 @keyframes pulseFuego {
