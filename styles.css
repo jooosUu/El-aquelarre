@@ -61,28 +61,12 @@ img {
   align-items: flex-start;
 }
 
-.btn-inicio {
-  background-color: var(--orange);
-  color: var(--off-white);
-  padding: 0.6rem 2rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-radius: 8px; /* Redondear un poco */
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-inicio:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(227, 94, 29, 0.4);
-}
-
 .nav-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 0.8rem;
+  width: 100%; /* Para que ocupe todo al no haber left */
 }
 
 .nav-links {
@@ -112,46 +96,39 @@ img {
 }
 
 .search-container {
+  position: absolute;
+  top: 15px;
+  right: 47px;
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.95); /* Blanco un poco más premium */
-  border-radius: 50px; /* Estética redondeada de cápsula */
+  background-color: var(--dark-purple); /* Ahora en morado para el bloque azul */
+  border-radius: 50px; 
   overflow: hidden;
-  width: 100%;
-  max-width: 200px;
-  padding: 0 10px;
-  border: 1px solid rgba(0,0,0,0.1);
+  width: 220px;
+  padding: 0 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: 50;
 }
 
 .search-container input {
   flex: 1;
   border: none;
   background: transparent;
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.5rem;
   font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  color: var(--magenta);
+  font-size: 0.9rem;
+  color: var(--off-white);
   outline: none;
 }
 
 .search-container input::placeholder {
-  color: #888;
-}
-
-.search-btn {
-  background: transparent;
-  border: none;
-  padding: 0.25rem 0.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: rgba(255,255,255,0.6);
 }
 
 .search-btn svg {
-  width: 14px;
-  height: 14px;
-  fill: var(--magenta);
+  width: 16px;
+  height: 16px;
+  fill: var(--off-white);
 }
 
 /* ============================================
