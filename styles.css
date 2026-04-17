@@ -688,38 +688,27 @@ html {
   transition: transform 0.2s ease-out; /* Suave pero rápido para el repel */
 }
 
-/* Posiciones exactas calcadas de la referencia */
-.floating-1 { 
-  top: 5%; 
-  left: 2%; 
-  transform: rotate(-12deg);
-  animation: floating-card 4s infinite alternate ease-in-out; 
+/* Posiciones de "Caos Organizado" para alejarlo de un grid */
+.pos-1 { top: 10%; left: -5%; transform: rotate(-15deg); }
+.pos-2 { top: 0%; right: 0%; transform: rotate(20deg); }
+.pos-3 { top: 35%; left: 10%; transform: rotate(-5deg); }
+.pos-4 { top: 30%; right: 15%; transform: rotate(15deg); }
+.pos-5 { top: 60%; left: -2%; transform: rotate(-10deg); }
+.pos-6 { top: 55%; right: -5%; transform: rotate(8deg); }
+
+.clan-card {
+  position: absolute;
+  width: 300px;
+  transition: transform 0.2s ease-out;
+  animation: floating-card 6s infinite alternate ease-in-out;
 }
 
-.floating-2 { 
-  top: 15%; 
-  right: 5%; 
-  transform: rotate(18deg);
-  animation: floating-card 5s infinite alternate-reverse ease-in-out; 
-  z-index: 2;
-}
-
-.floating-3 { 
-  top: 48%; 
-  left: 15%; 
-  transform: rotate(-10deg);
-  animation: floating-card 4.5s infinite alternate ease-in-out; 
-  animation-delay: 1s; 
-}
-
-.floating-4 { 
-  top: 42%; 
-  right: 10%; 
-  transform: rotate(12deg);
-  animation: floating-card 5.5s infinite alternate-reverse ease-in-out; 
-  animation-delay: 0.5s; 
-  z-index: 3;
-}
+.pos-1 { animation-delay: 0s; }
+.pos-2 { animation-delay: 0.5s; }
+.pos-3 { animation-delay: 1s; }
+.pos-4 { animation-delay: 0.2s; }
+.pos-5 { animation-delay: 0.8s; }
+.pos-6 { animation-delay: 0.4s; }
 
 .clan-card:hover {
   transform: scale(1.1) !important;
@@ -744,18 +733,20 @@ html {
   filter: hue-rotate(140deg) brightness(1.1); /* Rosado/Naranja */
 }
 
-/* Bola Rosada que envuelve el cursor */
+/* Bola Rosada que envuelve el cursor - Intensificada */
 #cursor-bola {
   position: fixed;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(238, 162, 189, 0.4) 0%, rgba(201, 0, 118, 0) 70%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(238, 162, 189, 0.7) 0%, rgba(201, 0, 118, 0.4) 40%, rgba(201, 0, 118, 0) 80%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 999;
   transform: translate(-50%, -50%);
-  display: none; /* Se activa por JS */
-  filter: blur(10px);
+  display: none; 
+  filter: blur(15px);
+  mix-blend-mode: screen; /* Para que brille más sobre el naranja */
+  box-shadow: 0 0 50px rgba(238, 162, 189, 0.5);
 }
 
 .seccion-unete:hover #cursor-bola {
