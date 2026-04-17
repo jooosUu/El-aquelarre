@@ -284,24 +284,7 @@
         }
       });
 
-      // 2. Repelente de cartas (Resorte / No persistente para no perderlas)
-      clanCards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const cardCenterX = rect.left + rect.width / 2;
-        const cardCenterY = rect.top + rect.height / 2;
-        const dx = e.clientX - cardCenterX;
-        const dy = e.clientY - cardCenterY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < REPEL_RADIUS) {
-          const force = (REPEL_RADIUS - distance) / REPEL_RADIUS;
-          const moveX = (dx / distance) * force * -REPEL_STRENGTH_CARTS;
-          const moveY = (dy / distance) * force * -REPEL_STRENGTH_CARTS;
-          card.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        } else {
-          card.style.transform = `translate(0px, 0px)`;
-        }
-      });
+      // 2. Repelente de cartas eliminado por pedido del usuario (solo queda hover CSS)
     });
 
     // Resetear letras al salir de la sección con un TIMER
