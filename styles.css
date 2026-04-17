@@ -759,7 +759,6 @@ html {
   width: 100%;
   display: flex;
   z-index: 5;
-  transform: rotate(180deg);
 }
 
 .fuego-naranja-solo {
@@ -800,8 +799,8 @@ html {
 }
 
 .final-fuego-azul {
-  width: 110%; /* Más grande que la dama */
-  max-width: 900px;
+  width: 90%;
+  max-width: 700px;
   position: absolute;
   z-index: 1;
   animation: pulseFuego 4s infinite alternate ease-in-out;
@@ -826,6 +825,8 @@ html {
   max-width: 900px; /* Aún más grande */
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
   margin-left: 0; /* Asegura contacto con el borde si es necesario */
+  position: relative;
+  z-index: 3;
 }
 
 @keyframes pulseFuego {
